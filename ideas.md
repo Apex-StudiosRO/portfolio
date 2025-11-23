@@ -1,0 +1,1 @@
+[] Users can leave reviews. Reviews require a Invoice ID ( 1 time use ). Without it, they cannot leave a review, nor check deails about their order
