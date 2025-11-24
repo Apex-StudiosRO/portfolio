@@ -11,8 +11,8 @@ const NavBar = () => {
 
     return (
         <>
-            <nav className="fixed p-2 top-1 w-screen flex items-center justify-center z-50 px-4">
-                <div className="flex py-2 px-6 bg-blue-300/15 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm border-2 border-blue-300/80 gap-6 items-center w-full max-w-7xl justify-between md:justify-center">
+            <nav className="fixed p-2 top-1 w-full flex items-center justify-center z-50 px-4">
+                <div className="flex py-2 px-6 bg-blue-300/15 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm border-2 border-blue-300/80 gap-6 items-center w-full max-w-4xl justify-between md:justify-center">
                     <Link href="/">
                         <Image src="/logo.png" alt="Logo" width={30} height={30} className="rounded-full" />
                     </Link>
@@ -46,7 +46,7 @@ const NavBar = () => {
 
             {/* Mobile Menu Dropdown */}
             {isMenuOpen && (
-                <div className="fixed top-16 left-0 right-0 z-40 md:hidden px-4">
+                <div className="fixed top-16 left-4 right-4 z-40 md:hidden max-w-md mx-auto">
                     <div className="bg-blue-300/15 backdrop-blur-sm border-2 border-blue-300/80 rounded-2xl p-6 flex flex-col gap-4">
                         <Link href="/" onClick={() => setIsMenuOpen(false)}>
                             <Button variant="underline">Home</Button>

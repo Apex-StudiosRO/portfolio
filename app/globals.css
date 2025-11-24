@@ -16,10 +16,12 @@ body {
   background: var(--background);
   color: var(--foreground); 
   user-select: text;
+  overflow-x: hidden;
 }
 
 * {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 ::selection {
@@ -159,9 +161,19 @@ body {
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   position: relative;
   z-index: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 0 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tech-icons-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .tech-icon {
@@ -272,12 +284,14 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .tech-icons-grid {
-    gap: 1.5rem;
+    gap: 1rem;
+    justify-content: flex-start;
   }
   
   .tech-icon {
     width: 35px;
     height: 35px;
+    flex-shrink: 0;
   }
   
   .tech-divider {
