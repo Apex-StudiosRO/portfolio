@@ -125,19 +125,27 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project) => (
-                            <ProjectCard
-                                key={project.id}
-                                id={project.id}
-                                title={project.title}
-                                description={project.description}
-                                technologies={project.technologies}
-                                image={project.image}
-                                url={project.url}
-                            />
-                        ))}
-                    </div>
+                    {projects.length > 0 ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {projects.map((project) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    id={project.id}
+                                    title={project.title}
+                                    description={project.description}
+                                    technologies={project.technologies}
+                                    image={project.image}
+                                    url={project.url}
+                                />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="flex flex-col items-center justify-center py-20 gap-6">
+                            <div className="text-8xl">😢</div>
+                            <p className="text-2xl text-white/60">No projects available</p>
+                            <p className="text-lg text-white/40">Check back soon for exciting new projects!</p>
+                        </div>
+                    )}
                 </div>
             </section>
 
