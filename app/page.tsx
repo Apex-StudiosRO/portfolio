@@ -45,7 +45,7 @@ export default function Home() {
                     <div className="flex flex-col items-center gap-2">
                         <span className="font-bold text-3xl text-white/90">Let's Build Something Amazing</span>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="flex flex-col gap-4">
                         <Link href="/#contact">
                             <Button variant="corners">
                                 Get In Touch
