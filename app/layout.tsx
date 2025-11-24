@@ -17,8 +17,30 @@ const monda = Monda({
 });
 
 export const metadata: Metadata = {
-    title: "Pandalio",
-    description: "",
+    title: "Matei - Web Developer Portfolio",
+    description: "Modern web developer specializing in Next.js, React, and TypeScript. Creating stunning, interactive web experiences with cutting-edge technologies and beautiful design.",
+    openGraph: {
+        title: "Matei - Web Developer Portfolio",
+        description: "Modern web developer specializing in Next.js, React, and TypeScript. Creating stunning, interactive web experiences with cutting-edge technologies and beautiful design.",
+        url: "https://itzz-panda.vercel.app",
+        siteName: "Panda's Portfolio",
+        locale: "en_US",
+        type: "website",
+        images: [
+            {
+                url: "/logo.png",
+                width: 1200,
+                height: 630,
+                alt: "Matei - Web Developer Portfolio",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Matei Cucu - Web Developer Portfolio",
+        description: "Modern web developer specializing in Next.js, React, and TypeScript. Creating stunning, interactive web experiences with cutting-edge technologies and beautiful design.",
+        images: ["/about.png"],
+    },
 };
 
 export default function RootLayout({
