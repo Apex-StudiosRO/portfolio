@@ -17,10 +17,10 @@ const monda = Monda({
 });
 
 export const metadata: Metadata = {
-    title: "Matei Cucu - Web Developer Portfolio",
+    title: "Matei - Web Developer Portfolio",
     description: "Modern web developer specializing in Next.js, React, and TypeScript. Creating stunning, interactive web experiences with cutting-edge technologies and beautiful design.",
     openGraph: {
-        title: "Matei  - Web Developer Portfolio",
+        title: "Matei - Web Developer Portfolio",
         description: "Modern web developer specializing in Next.js, React, and TypeScript. Creating stunning, interactive web experiences with cutting-edge technologies and beautiful design.",
         url: "https://itzz-panda.vercel.app",
         siteName: "Panda's Portfolio",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
                 url: "/logo.png",
                 width: 1200,
                 height: 630,
-                alt: "Matei Cucu - Web Developer Portfolio",
+                alt: "Matei - Web Developer Portfolio",
             },
         ],
     },
