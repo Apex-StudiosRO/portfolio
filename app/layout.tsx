@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Montserrat, Monda } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/NavBar"
+import Mouse from "@/components/Mouse";
+import Footer from "@/components/Footer";
+
 
 const montserrat = Montserrat({
     variable: "--font-montserrat",
@@ -27,7 +30,9 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${montserrat.variable} ${monda.variable} antialiased overflow-x-hidden`}>
                 <NavBar />
+                <Mouse />
                 {children}
+                <Footer />
             </body>
         </html>
     );

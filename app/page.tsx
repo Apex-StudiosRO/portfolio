@@ -1,83 +1,159 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Image from "next/image";
-
-const titles = ["Web Developer", "Networking Learner", "Full Stack Developer", "Tech Enthusiast", "Problem Solver"];
+import LightRays from "@/components/LightRays";
+import Button from "@/components/Button";
+import TechStack from "@/components/TechStack";
+import ParticlesEffect from "@/components/ParticlesEffect";
+import ProjectCard from "@/components/ProjectCard";
+import NavBar from '@/components/NavBar';
+import ScrollToTop from '@/components/ScrollToTop';
+import ReviewsCarousel from "@/components/ReviewsCarousel";
+import { projects } from "@/data/projects";
+import Link from "next/link";
 
 export default function Home() {
-    const [titleIndex, setTitleIndex] = useState(0);
-    const [displayText, setDisplayText] = useState("");
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [typingSpeed, setTypingSpeed] = useState(150);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-    useEffect(() => {
-        const currentTitle = titles[titleIndex];
-
-        const handleTyping = () => {
-            if (!isDeleting) {
-                if (displayText.length < currentTitle.length) {
-                    setDisplayText(currentTitle.slice(0, displayText.length + 1));
-                    setTypingSpeed(150);
-                } else {
-                    setTimeout(() => setIsDeleting(true), 2000);
-                }
-            } else {
-                if (displayText.length > 0) {
-                    setDisplayText(currentTitle.slice(0, displayText.length - 1));
-                    setTypingSpeed(100);
-                } else {
-                    setIsDeleting(false);
-                    setTitleIndex((prev) => (prev + 1) % titles.length);
-                }
-            }
-        };
-
-        const timer = setTimeout(handleTyping, typingSpeed);
-        return () => clearTimeout(timer);
-    }, [displayText, isDeleting, titleIndex, typingSpeed]);
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
-        };
-
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
-
     return (
         <>
-            <div
-                className="fixed w-24 h-24 bg-blue-300/30 rounded-full blur-3xl pointer-events-none transition-all duration-0 ease-out z-50"
-                style={{
-                    left: `${mousePosition.x}px`,
-                    top: `${mousePosition.y}px`,
-                    transform: "translate(-50%, -50%)",
-                }}
-            ></div>
-            <section id="main" className="relative flex w-screen h-screen items-center justify-between  flex-col pt-25">
+            <NavBar />
+            <ScrollToTop />
+            <LightRays />
+            <section
+                id="main"
+                className="relative flex w-screen h-screen items-center justify-between flex-col p-30 gap-10"
+            >
                 <div className="absolute -top-50 -left-50 w-96 h-96 bg-blue-300/15 rounded-full blur-3xl"></div>
                 <div className="absolute -bottom-50 -right-50 w-[32rem] h-[32rem] bg-blue-300/15 rounded-full blur-3xl"></div>
 
-                <div className="flex flex-col items-center justify-center z-10">
-                    <span className="text-3xl font-bold transition-colors  cursor-default">
-                        {" "}
-                        Hi, I'm Matei <span className="text-md text-white/20 ">aka Panda</span>
-                    </span>
-                    <span className="text-2xl font-bold transition-colors  cursor-default">
-                        I'm a{" "}
-                        <span className="text-blue-300 min-w-[200px]">
-                            {displayText}
-                            <span className="animate-pulse">|</span>
+                <div className="flex flex-col items-center justify-center z-10 text-center gap-10">
+                    <div className="flex flex-col items-center">
+                        <span className="text-2xl font-thin text-white/80 transition-colors cursor-default">
+                            Hi, I'm
                         </span>
-                    </span>
+                        <span className="text-6xl font-bold">Matei</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center text-center">
+                        <span className="text-7xl font-bold font-monda text-blue-300/80 text-glow">
+                            Web Developer
+                        </span>
+                        <span className="text-2xl text-white/40 font-monda">
+                            Crafting modern web experiences
+                        </span>
+                    </div>
+                </div>
+                <ParticlesEffect />
+
+                <div className="flex flex-col items-center justify-center gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="font-bold text-3xl text-white/90">Let's Build Something Amazing</span>
+                    </div>
+                    <div className="flex gap-5">
+                        <Link href="/#contact">
+                            <Button variant="corners">
+                                Get In Touch
+                            </Button>
+                        </Link>
+                        <Link href="/#projects">
+                            <Button variant="secondary">
+                                View Projects
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             </section>
-            <section id="about" className="flex relative w-screen h-screen">
-                <h1 className="m-auto text-4xl font-bold">About Me</h1>
+            <section id="techstack"><TechStack /></section>
+            
+            <section id="about" className="flex relative w-screen min-h-screen items-center justify-center px-8 py-20 w-full h-full">
+                <div className="max-w-7xl w-full h-full flex flex-col lg:flex-row items-center justify-between gap-16">
+                    <div className="flex-1 flex flex-col gap-8 max-w-2xl">
+                        <div className="flex flex-col gap-4">
+                            <h2 className="text-5xl font-bold text-blue-300/90">About Me</h2>
+                            <div className="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-transparent rounded-full"></div>
+                        </div>
+                        
+                        <div className="flex flex-col gap-6 text-lg text-white/70 leading-relaxed">
+                            <p>
+                                I'm a <span className="text-blue-300 font-semibold">16-year-old developer</span> from <span className="text-white/90">Suceava, Romania</span>, driven by an insatiable curiosity for technology and a passion for creating exceptional web experiences.
+                            </p>
+                            
+                            <p>
+                                My journey into IT began with a simple question: <span className="text-white/90 italic">"How do people create such amazing websites?"</span> That curiosity transformed into a dedication to mastering modern web development, constantly pushing myself to learn new technologies and best practices.
+                            </p>
+                            
+                            <p>
+                                I specialize in building <span className="text-blue-300 font-semibold">responsive</span>, <span className="text-blue-300 font-semibold">performant</span>, and <span className="text-blue-300 font-semibold">visually stunning</span> web applications using cutting-edge technologies like React, Next.js, and TypeScript. My self-taught journey has taught me the value of persistence, problem-solving, and continuous learning.
+                            </p>
+                            
+                            <p>
+                                What sets me apart is my <span className="text-white/90 font-semibold">youth combined with dedication</span>—I bring fresh perspectives, adaptability, and an eagerness to tackle complex challenges. I'm always exploring new frameworks, design patterns, and industry trends to stay ahead in this fast-evolving field.
+                            </p>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-3 mt-4">
+                            <span className="px-4 py-2 bg-blue-400/10 border border-blue-400/30 rounded-lg text-blue-300 text-sm">Self-Taught</span>
+                            <span className="px-4 py-2 bg-blue-400/10 border border-blue-400/30 rounded-lg text-blue-300 text-sm">Problem Solver</span>
+                            <span className="px-4 py-2 bg-blue-400/10 border border-blue-400/30 rounded-lg text-blue-300 text-sm">Fast Learner</span>
+                            <span className="px-4 py-2 bg-blue-400/10 border border-blue-400/30 rounded-lg text-blue-300 text-sm">Detail-Oriented</span>
+                        </div>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center max-w-md w-full">
+                        <div className="relative w-full aspect-square max-w-[400px]">
+                            <div className="absolute -inset-4 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-transparent rounded-2xl"></div>
+                            
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-blue-400/30 bg-gradient-to-br from-blue-900/20 to-blue-950/40 backdrop-blur-sm">
+                                <Image
+                                    src="/about.png"
+                                    alt="Matei - Web Developer"
+                                    fill
+                                    className="object-cover w-full h-full"
+                                    priority
+                                />
+                            </div>
+                            
+                            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-400/20 rounded-lg blur-2xl"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <section id="projects" className="flex relative w-screen min-h-screen items-center justify-center px-8 py-20">
+                <div className="max-w-7xl w-full flex flex-col gap-12">
+                    <div className="flex flex-col gap-4">
+                        <h2 className="text-5xl font-bold text-blue-300/90">Featured Projects</h2>
+                        <div className="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-transparent rounded-full"></div>
+                        <p className="text-xl text-white/60">
+                            A showcase of my recent work and personal projects
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {projects.map((project) => (
+                            <ProjectCard
+                                key={project.id}
+                                id={project.id}
+                                title={project.title}
+                                description={project.description}
+                                technologies={project.technologies}
+                                image={project.image}
+                                url={project.url}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* <section id="reviews" className="flex relative w-screen min-h-screen items-center justify-center px-8 py-20">
+                <div className="max-w-7xl w-full flex flex-col gap-12">
+                    <div className="flex flex-col gap-4 text-center">
+                        <h2 className="text-5xl font-bold text-blue-300/90">Client Reviews</h2>
+                        <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full mx-auto"></div>
+                        <p className="text-xl text-white/60">
+                            What clients say about working with me
+                        </p>
+                    </div>
+
+                    <ReviewsCarousel />
+                </div>
+            </section> */}
         </>
     );
 }
