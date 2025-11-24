@@ -7,6 +7,7 @@ import ProjectCard from "@/components/ProjectCard";
 import NavBar from "@/components/NavBar";
 import ScrollToTop from "@/components/ScrollToTop";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
+import { RiErrorWarningLine } from "react-icons/ri";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 
@@ -65,17 +66,16 @@ export default function Home() {
 
             <section
                 id="about"
-                className="flex relative w-full min-h-screen items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 overflow-x-hidden"
+                className="flex relative flex-col w-full min-h-screen gap-8 items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 overflow-x-hidden"
             >
+                <div className="flex flex-col gap-4 w-full items-center">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-300/90">
+                        About Me
+                    </h2>
+                    <div className="tech-divider"></div>
+                </div>
                 <div className="max-w-7xl w-full h-full flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-16">
-                    <div className="flex-1 flex flex-col gap-6 sm:gap-8 max-w-2xl w-full">
-                        <div className="flex flex-col gap-4">
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-300/90">
-                                About Me
-                            </h2>
-                            <div className="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-transparent rounded-full"></div>
-                        </div>
-
+                    <div className="flex-1 flex flex-col gap-6 sm:gap-8 max-w-2xl w-full  items-center">
                         <div className="flex flex-col gap-4 sm:gap-6 text-sm sm:text-base md:text-lg text-white/70 leading-relaxed">
                             <p>
                                 I'm a{" "}
@@ -176,12 +176,12 @@ export default function Home() {
                 id="projects"
                 className="flex relative w-full min-h-screen items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 overflow-x-hidden"
             >
-                <div className="max-w-7xl w-full flex flex-col gap-8 sm:gap-10 md:gap-12">
-                    <div className="flex flex-col gap-4">
+                <div className="max-w-7xl w-full flex flex-col gap-8 sm:gap-10 md:gap-12 items-center">
+                    <div className="flex flex-col gap-4 w-full items-center">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-300/90">
                             Featured Projects
                         </h2>
-                        <div className="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-transparent rounded-full"></div>
+                        <div className="tech-divider"></div>
                         <p className="text-base sm:text-lg md:text-xl text-white/60">
                             A showcase of my recent work and personal projects
                         </p>
@@ -203,8 +203,8 @@ export default function Home() {
                         </div>
                     ) : (
                         <div className="flex flex-col items-center justify-center py-12 sm:py-16 md:py-20 gap-4 sm:gap-6">
-                            <div className="text-6xl sm:text-7xl md:text-8xl">
-                                😢
+                            <div className="text-6xl sm:text-7xl md:text-8xl text-white/60">
+                                <RiErrorWarningLine />
                             </div>
                             <p className="text-xl sm:text-2xl text-white/60 text-center">
                                 No projects available
@@ -216,20 +216,6 @@ export default function Home() {
                     )}
                 </div>
             </section>
-
-            {/* <section id="reviews" className="flex relative w-screen min-h-screen items-center justify-center px-8 py-20">
-                <div className="max-w-7xl w-full flex flex-col gap-12">
-                    <div className="flex flex-col gap-4 text-center">
-                        <h2 className="text-5xl font-bold text-blue-300/90">Client Reviews</h2>
-                        <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full mx-auto"></div>
-                        <p className="text-xl text-white/60">
-                            What clients say about working with me
-                        </p>
-                    </div>
-
-                    <ReviewsCarousel />
-                </div>
-            </section> */}
         </>
     );
 }

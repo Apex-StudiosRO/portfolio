@@ -1,4 +1,3 @@
-// Sample project data - you can move this to a database or CMS later
 export interface Project {
     id: string;
     title: string;

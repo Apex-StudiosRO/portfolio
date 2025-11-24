@@ -12,7 +12,7 @@ const NavBar = () => {
     return (
         <>
             <nav className="fixed top-4 left-0 right-0 flex items-center justify-center z-50 px-2 sm:px-4">
-                <div className="flex py-2 px-3 sm:px-6 bg-blue-300/15 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm border-2 border-blue-300/80 gap-2 sm:gap-6 items-center w-[80%] max-w-4xl justify-between md:justify-center">
+                <div className="flex py-2 px-3 sm:px-6 bg-slate-800/15 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm border-2 border-slate-700/80 gap-2 sm:gap-6 items-center w-[80%] max-w-4xl justify-between md:justify-center">
                     <Link href="/">
                         <Image src="/logo.png" alt="Logo" width={30} height={30} className="rounded-full" />
                     </Link>
@@ -34,7 +34,7 @@ const NavBar = () => {
 
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="md:hidden p-2 text-blue-300 hover:text-blue-200 transition-colors"
+                        className="md:hidden p-2 text-500-500 hover:text-blue-200 transition-colors"
                         aria-label="Toggle menu"
                     >
                         {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -44,7 +44,7 @@ const NavBar = () => {
 
             {isMenuOpen && (
                 <div className="fixed top-16 left-4 right-4 z-40 md:hidden max-w-md mx-auto">
-                    <div className="bg-blue-300/15 backdrop-blur-sm border-2 border-blue-300/80 rounded-2xl p-6 flex flex-col gap-4">
+                    <div className="bg-blue-300/15 backdrop-blur-sm border-2 border-blue-500/80 rounded-2xl p-6 flex flex-col gap-4">
                         <Link href="/" onClick={() => setIsMenuOpen(false)}>
                             <Button variant="underline">Home</Button>
                         </Link>

@@ -37,17 +37,23 @@ export default function Footer() {
     ];
 
     return (
-        <footer id="contact" className="relative w-full border-t border-blue-400/20 bg-blue-300/5 backdrop-blur-sm">
-            {/* Footer Info Section */}
-            <div>
-                <div className="max-w-7xl mx-auto px-8 py-12">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <footer
+            id="contact"
+            className="relative w-full border-t border-blue-400/20 bg-blue-300/5 backdrop-blur-sm"
+        >
+            <div className="flex flex-col justify-center max-w-7xl mx-auto items-center">
+                <div className="w-full mx-auto px-12 py-8 flex items-center justify-center flex-col gap-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-8 w-full">
                         <div className="flex items-center gap-2">
-                            <Image src="/logo.png" alt="Logo" width={40} height={40} className="rounded-full" />
-                        </div>
-
-                        <div className="text-white/50 text-sm">
-                            © {currentYear} Panda. All rights reserved.
+                            <Link href="/">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Logo"
+                                    width={40}
+                                    height={40}
+                                    className="rounded-full"
+                                />
+                            </Link>
                         </div>
 
                         <div className="flex gap-4">
@@ -64,6 +70,9 @@ export default function Footer() {
                                 </Link>
                             ))}
                         </div>
+                    </div>
+                    <div className="text-white/50 text-sm">
+                        © {currentYear} Panda. All rights reserved.
                     </div>
                 </div>
             </div>
