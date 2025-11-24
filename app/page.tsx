@@ -18,7 +18,7 @@ export default function Home() {
             <LightRays />
             <section
                 id="main"
-                className="relative flex w-full min-h-screen items-center justify-between flex-col p-20 sm:p-40 md:p-30 gap-6 sm:gap-8 md:gap-10"
+                className="relative flex w-full min-h-screen items-center justify-between flex-col py-30 px-2 sm:px-4 md:px-8 gap-6 sm:gap-8 md:gap-10"
             >
                 <div className="absolute -top-50 -left-50 w-64 h-64 sm:w-96 sm:h-96 bg-blue-300/15 rounded-full blur-3xl"></div>
                 <div className="absolute -bottom-50 -right-50 w-64 h-64 sm:w-96 sm:h-96 md:w-[32rem] md:h-[32rem] bg-blue-300/15 rounded-full blur-3xl"></div>
